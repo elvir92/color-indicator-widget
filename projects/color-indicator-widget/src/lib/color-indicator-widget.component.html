@@ -1,0 +1,28 @@
+<ng-container *ngIf="list.length > 0;else no_data">
+  <div class="container">
+    <div class="colors">
+      <div
+        *ngFor="let item of list"
+        class="color-step"
+        #colorStep
+        [attr.color]="item?.color"
+        [style.width]="item?.width"
+        [style.background]="item?.color"
+      ></div>
+    </div>
+    <div
+      class="indicator"
+      cdkDrag
+      cdkDragLockAxis="x"
+      (cdkDragMoved)="dragMove($event)"
+    >
+      &uarr;
+    </div>
+    <b class="selected-color-text">
+      {{ selectedColor }}
+    </b>
+  </div>
+</ng-container>
+<ng-template #no_data>
+  <h1 *ngIf="showNoDataMessage" class="no-data-text">No colors provided!</h1>
+</ng-template>

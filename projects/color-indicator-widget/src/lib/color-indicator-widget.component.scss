@@ -1,0 +1,25 @@
+.container {
+  padding: 1rem;
+
+  .colors {
+    display: flex;
+
+    .color-step {
+      min-height: 25px;
+    }
+  }
+
+  .indicator {
+    font-size: 2rem;
+    cursor: grab;
+  }
+
+  .selected-color-text {
+    display: flex;
+    justify-content: center;
+  }
+}
+.no-data-text {
+    display: flex;
+    justify-content: center;
+}
