@@ -1,7 +1,9 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   QueryList,
   ViewChildren,
 } from '@angular/core';
@@ -21,6 +23,7 @@ export class ColorIndicatorWidgetComponent {
     | undefined;
   @Input('colors') list: IColorIndicator[] = [];
   @Input() showNoDataMessage?: boolean = true;
+  @Output() colorChanged:EventEmitter<string> = new EventEmitter<string>();
 
   selectedColor: string;
   
@@ -36,5 +39,7 @@ export class ColorIndicatorWidgetComponent {
 
     this.selectedColor =
       sameElement?.nativeElement?.getAttribute('color') || '';
+      
+      this.colorChanged.emit(this.selectedColor)
   }
 }
